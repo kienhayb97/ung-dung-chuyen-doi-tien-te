@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+    <tr>
+        <th><h2>Amount</h2></th>
+        <th><h2>From Curency</h2></th>
+        <th><h2 style="margin-left: 20px">To Curency</h2></th>
+    </tr>
+        <th><input type="text"  id="q"/>  </th>
+<th><select name="from currency" id="b">
+    <option value="VND">Viet Nam</option>
+    <option value="dola">My</option>
+    <option value="te">trung quoc</option>
+</select></th>
+<th><select name="to currency" id="c">
+    <option value="VND">Viet Nam</option>
+    <option value="dola">My</option>
+    <option value="te">trung quoc</option>
+</select></th>
+       <th> <button value="convert" onclick="thangbao()">convert</button></th>
+        </tr>
+
+        </table>
+<script>
+function thangbao() {
+    let d=document.getElementById("q").value;
+     let fromcurrency=document.getElementById("b");
+    let tocunrrency=document.getElementById("c");
+    if(fromcurrency.value === 'VND'){
+        if(tocunrrency.value === 'VND'){
+            document.getElementById('ket').innerHTML=d*1;
+        }else if(tocunrrency.value === 'dola'){
+            document.getElementById('ket').innerHTML=d*23000;
+        }else{
+            document.getElementById('ket').innerHTML=d*3500;
+        }
+    }else if(fromcurrency.value === 'dola'){
+            if(tocunrrency.value === 'VND'){
+                document.getElementById('ket').innerHTML=d/23000;
+            }else if(tocunrrency.value === 'dola'){
+                document.getElementById('ket').innerHTML=(d*1);
+            }else{
+                document.getElementById('ket').innerHTML=(d*(23000/3500));
+            }
+    }
+     else if(fromcurrency.value === 'te') {
+        if (tocunrrency.value === 'VND') {
+            document.getElementById('ket').innerHTML=(d / 3500);
+        } else if (tocunrrency.value === 'dola') {
+            document.getElementById('ket').innerHTML=(d * (3500 / 25000));
+        } else {
+            document.getElementById('ket').innerHTML=(d * 1);
+        }
+    }}
+</script>
+    result
+    <p id="ket">ket </p>
+</body>
+</html>
